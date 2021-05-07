@@ -13,7 +13,7 @@ config:
 environment:
   JPL_DOCKERSERVER: https://hub.docker.com/
 sqa_criteria:
-  qc_func:
+  qc_functional:
     repos:
       this_repo:
         tox:
