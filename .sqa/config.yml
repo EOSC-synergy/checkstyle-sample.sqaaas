@@ -1,0 +1,28 @@
+config:
+  credentials:
+  - id: mycreds
+    password_var: GIT_PASS
+    type: username_password
+    username_var: GIT_USER
+  ojete_calor: []
+  project_repos:
+  - branch: master
+    repo: https://github.com/EOSC-synergy/checkstyle
+  - branch: dev-diana
+    repo: https://github.com/EOSC-synergy/sqaaas-web
+environment:
+  JPL_DOCKERSERVER: https://hub.docker.com/
+sqa_criteria:
+  qc_func:
+    repos:
+      this_repo:
+        tox:
+          testenv:
+          - bandit
+          tox_file: /deepaas-testing/tox.ini
+  qc_style:
+    repos:
+      this_repo:
+        commands:
+        - whatevernosensecommand
+        container: node
