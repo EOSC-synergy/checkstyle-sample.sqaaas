@@ -6,23 +6,29 @@ config:
     username_var: GIT_USER
   ojete_calor: []
   project_repos:
-  - branch: master
-    repo: https://github.com/EOSC-synergy/checkstyle
-  - branch: dev-diana
-    repo: https://github.com/EOSC-synergy/sqaaas-web
+    github.com/EOSC-synergy/checkstyle:
+      branch: master
+      repo: https://github.com/EOSC-synergy/checkstyle
+    github.com/EOSC-synergy/sqaaas-web:
+      branch: dev-diana
+      repo: https://github.com/EOSC-synergy/sqaaas-web
 environment:
   JPL_DOCKERSERVER: https://hub.docker.com/
 sqa_criteria:
   qc_functional:
     repos:
-      this_repo:
+      github.com/EOSC-synergy/sqaaas-web:
         tox:
           testenv:
           - bandit
           tox_file: /deepaas-testing/tox.ini
   qc_style:
     repos:
+      github.com/EOSC-synergy/checkstyle:
+        commands:
+        - /usr/bin/env sh .sqa/script.wiggy-crimson-bandicoot.sh
+        container: maven-testing
       this_repo:
         commands:
-        - whatevernosensecommand
+        - whatevercommand
         container: node
